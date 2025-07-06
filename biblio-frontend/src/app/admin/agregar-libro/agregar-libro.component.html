@@ -1,0 +1,38 @@
+<div class="contenedor-admin-agregar">
+  <h2>🔍 Buscar libros en Google Books</h2>
+
+  <div class="barra-busqueda">
+    <input type="text" [(ngModel)]="terminoBusqueda" placeholder="Buscar por título, autor o género..." />
+    <button (click)="buscarLibrosGoogle()">Buscar</button>
+  </div>
+
+  <div *ngIf="resultados.length > 0" class="resultados">
+    <div *ngFor="let libro of resultados" class="libro">
+      <img [src]="libro.volumeInfo.imageLinks?.thumbnail || 'https://via.placeholder.com/100x150'" />
+      <div class="info">
+        <h4>{{ libro.volumeInfo.title }}</h4>
+        <p><strong>Autor:</strong> {{ libro.volumeInfo.authors?.[0] || 'Desconocido' }}</p>
+        <p><strong>Género:</strong> {{ libro.volumeInfo.categories?.[0] || 'General' }}</p>
+        <p class="descripcion">{{ libro.volumeInfo.description || 'Sin descripción.' }}</p>
+        <button (click)="seleccionarLibro(libro)">📚 Agregar ejemplares</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div *ngIf="libroSeleccionado" class="modal-overlay animate__animated animate__fadeIn">
+    <div class="modal-contenido animate__animated animate__zoomIn">
+      <h3>¿Cuántos ejemplares de <em>{{ libroSeleccionado.volumeInfo.title }}</em> deseas agregar?</h3>
+      <input type="number" [(ngModel)]="cantidadEjemplares" min="1" />
+
+      <div class="botones-modal">
+        <button class="confirmar" (click)="confirmarGuardarLibro()">✅ Confirmar y guardar</button>
+        <button class="cancelar" (click)="cerrarModal()">Cancelar</button>
+      </div>
+
+      <div class="mensaje" *ngIf="mensajeGuardado">
+        {{ mensajeGuardado }}
+      </div>
+    </div>
+  </div>
+</div>

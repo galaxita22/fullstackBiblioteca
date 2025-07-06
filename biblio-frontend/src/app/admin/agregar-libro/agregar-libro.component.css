@@ -1,0 +1,138 @@
+/* admin-agregar-libro.component.css */
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+
+.contenedor-admin-agregar {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.barra-busqueda {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.barra-busqueda input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.barra-busqueda button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #3366cc;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.barra-busqueda button:hover {
+  background-color: #254f9a;
+}
+
+.resultados {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.libro {
+  display: flex;
+  gap: 16px;
+  background-color: #f3f4f6;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+.libro img {
+  width: 140px;
+  height: 190px;
+  object-fit: fill;
+  border-radius: 4px;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h4 {
+  margin: 0 0 4px;
+}
+
+.info .descripcion {
+  font-size: 14px;
+  color: #444;
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.info button {
+  margin-top: 8px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #009688;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-contenido {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-contenido input {
+  width: 60%;
+  padding: 8px;
+  margin-top: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.botones-modal {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+}
+
+.botones-modal .confirmar {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+}
+
+.botones-modal .cancelar {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+}
+
+.mensaje {
+  margin-top: 16px;
+  font-weight: bold;
+}

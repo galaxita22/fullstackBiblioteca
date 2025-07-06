@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --primary-color: #a00bff;
+  --secondary-color: #c977ff;
+  --accent-color: #ac4df1;
+  --text-color: #400669;
+}
+
+body {
+  font-family: "Press Start 2P", system-ui;
+  background: url("https://64.media.tumblr.com/978208d1833eeb73d91a56f402aac8ad/378c8f296a8f9b81-81/s1280x1920/0676e4baddba001440f923c9ea164ce503ea288b.gifv");
+  margin: 0;
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+  color: var(--primary-color);
+}

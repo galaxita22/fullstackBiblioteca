@@ -1,0 +1,30 @@
+<div class="devolucion-container">
+  <h2>Devolución de Libro</h2>
+
+  <form (ngSubmit)="buscarEjemplar()" #formDevolucion="ngForm">
+    <div class="form-group">
+      <label for="codigo">Código del ejemplar</label>
+      <input type="text" id="codigo" name="codigo" [(ngModel)]="codigo" required>
+    </div>
+
+    <button type="submit" [disabled]="!formDevolucion.form.valid">Buscar</button>
+  </form>
+
+  <div *ngIf="ejemplarEncontrado">
+    <h3>Resultado:</h3>
+    <p><strong>Código:</strong> {{ ejemplarEncontrado.codigo }}</p>
+    <p><strong>Título:</strong> {{ ejemplarEncontrado.book?.title }}</p>
+    <p><strong>Estado:</strong> {{ ejemplarEncontrado.estado }}</p>
+
+    <div *ngIf="arriendoActual">
+      <p><strong>Arrendado por:</strong> {{ arriendoActual.usuario?.email }}</p>
+      <p><strong>Inicio:</strong> {{ arriendoActual.fechaInicio }}</p>
+      <p><strong>Devuelto:</strong> {{ arriendoActual.devuelto ? '✅ Sí' : '❌ No' }}</p>
+      <button *ngIf="!arriendoActual.devuelto" (click)="devolver()">Devolver</button>
+    </div>
+
+    <button (click)="cambiarEstado()">Cambiar estado</button>
+  </div>
+
+  <div *ngIf="mensaje">{{ mensaje }}</div>
+</div>

@@ -1,0 +1,41 @@
+<header>
+  <button class="logout" (click)="logout()">Cerrar sesión</button>
+</header>
+<div class="admin-panel">
+  <h2>Panel de Administración</h2>
+
+  <div class="botones-secciones">
+    <button (click)="setSeccion('verLibros')">📚 Ver libros</button>
+    <button (click)="setSeccion('agregarLibro')">➕ Agregar libro</button>
+    <button (click)="seccion = 'devoluciones'">📤 Devoluciones</button>
+  </div>
+
+  <div class="seccion-activa">
+    <ng-container [ngSwitch]="seccion">
+      <div *ngSwitchCase="'verLibros'">
+        <div *ngFor="let libro of books" class="libro-ficha">
+          <img [src]="libro.image" alt="Portada" class="portada" *ngIf="libro.image" />
+
+          <div class="info-libro">
+            <h4 class="titulo">{{ libro.title }}</h4>
+            <p><strong>Autor:</strong> {{ libro.author }}</p>
+            <p><strong>Género:</strong> {{ libro.genre }}</p>
+            <p><strong>Copias disponibles:</strong> {{ libro.disponibles }}</p>
+            <p><strong>Descripción:</strong> {{ libro.description?.slice(0, 200) }}...</p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'agregarLibro'">
+        <app-agregar-libro></app-agregar-libro>
+      </div>
+
+      <div *ngSwitchCase="'devoluciones'">
+        <app-devolucion-libros></app-devolucion-libros>
+      </div>
+      <div *ngSwitchDefault>
+        <p>Selecciona una sección arriba</p>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<header>
+  <button class="logout" (click)="logout()">Cerrar sesión</button>
+
+</header>
+
+<div class="client-panel">
+  <h2>Panel del Cliente</h2>
+
+  <div class="botones-secciones">
+    <button (click)="setSeccion('buscar')">🔍 Buscar Libros</button>
+    <button (click)="setSeccion('misArriendos')">📚 Mis Arriendos</button>
+  </div>
+
+  <div class="seccion-activa" *ngIf="seccion === 'buscar'">
+    <form (ngSubmit)="buscar($event)" #formBuscar="ngForm">
+      <input
+        type="text"
+        [(ngModel)]="terminoBusqueda"
+        name="terminoBusqueda"
+        placeholder="Buscar por título, autor o género"
+        required
+      />
+      <button type="submit">🔍 Buscar</button>
+    </form>
+
+    <div class="resultados" *ngIf="books.length > 0">
+      <h3>Resultados:</h3>
+
+      <ng-container *ngFor="let libro of books">
+        <!-- LIBROS DESDE LA BASE DE DATOS -->
+        <div class="libro-ficha" *ngIf="!libro.volumeInfo">
+          <img [src]="libro.image" class="portada" *ngIf="libro.image" />
+
+          <div class="info-libro">
+            <h4>{{ libro.title }}</h4>
+            <p><strong>Autor:</strong> {{ libro.author }}</p>
+            <p><strong>Género:</strong> {{ libro.genre }}</p>
+            <p><strong>Descripción:</strong> {{ libro.description?.slice(0, 200) || 'No disponible.' }}...</p>
+            <p><strong>Copias disponibles:</strong> {{ libro.disponibles }}</p>
+            <p>
+              <strong>Disponibilidad:</strong>
+              <span *ngIf="esDisponible(libro)">✅ Disponible</span>
+              <span *ngIf="!esDisponible(libro)">❌ No disponible</span>
+            </p>
+
+            <button *ngIf="rolUsuario === 'client' && esDisponible(libro)" (click)="arrendar(libro)">
+              📚 Arrendar
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="seccion-activa" *ngIf="seccion === 'misArriendos'">
+    <app-mis-arriendos></app-mis-arriendos>
+  </div>
+</div>

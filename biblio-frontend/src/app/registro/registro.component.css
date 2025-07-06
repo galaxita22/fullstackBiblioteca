@@ -1,0 +1,66 @@
+.registro-container {
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #a00bff;
+}
+
+button:disabled {
+  background-color: #aaa;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+}
+
+.login-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.login-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}
