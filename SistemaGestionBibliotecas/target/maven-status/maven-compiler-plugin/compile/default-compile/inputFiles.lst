@@ -1,0 +1,17 @@
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\BibliotecaBackendApplication.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\config\CorsGlobalConfiguration.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\config\SecurityConfig.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\controllers\ArriendoController.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\controllers\AuthController.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\controllers\BookController.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\controllers\GoogleBooksController.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\controllers\LoginRequest.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\DataInitializer.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\models\Arriendo.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\models\Book.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\models\LibroDTO.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\models\User.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\models\UserLoginResponseDTO.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\repositories\ArriendoRepository.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\repositories\BookRepository.java
+C:\Users\ignac\biblioteca-fullstack\SistemaGestionBibliotecas\src\main\java\com\biblioteca\biblioteca_backend\repositories\UserRepository.java
