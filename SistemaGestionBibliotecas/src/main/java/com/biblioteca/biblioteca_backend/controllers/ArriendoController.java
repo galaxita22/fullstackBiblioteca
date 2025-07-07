@@ -79,8 +79,10 @@ public class ArriendoController {
     // ✅ 2. Devolver un libro
     @PutMapping("/devolver/{codigo}")
     public String devolver(@PathVariable String codigo) {
-        Arriendo arriendo = arriendoRepository.findByCodigo(codigo);
-        if (arriendo == null || arriendo.isDevuelto()) return "Error al devolver o ha sido devuelto.";
+        List<Arriendo> activos = arriendoRepository.findByCodigoAndDevueltoFalse(codigo);
+        if (activos.isEmpty()) return "Error al devolver o ha sido devuelto.";
+
+        Arriendo arriendo = activos.get(0);
         arriendo.setDevuelto(true);
         arriendo.setFechaDevolucion(LocalDate.now());
         arriendoRepository.save(arriendo);
