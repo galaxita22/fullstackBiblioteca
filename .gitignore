@@ -1,0 +1,6 @@
+.idea/fullstackBiblioteca.iml
+.idea/jarRepositories.xml
+.idea/misc.xml
+/.idea
+/biblio-frontend/.angular
+/biblio-frontend/node_modules
