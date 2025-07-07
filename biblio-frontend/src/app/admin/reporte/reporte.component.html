@@ -1,0 +1,12 @@
+<div class="reporte-container" *ngIf="resumen">
+    <h3>Resumen de la Biblioteca</h3>
+    <p><strong>Total de libros:</strong> {{ resumen.totalLibros }}</p>
+    <p><strong>Libros disponibles:</strong> {{ resumen.librosDisponibles }}</p>
+    <p><strong>Libros prestados:</strong> {{ resumen.librosPrestados }}</p>
+    <p><strong>Total de usuarios:</strong> {{ resumen.totalUsuarios }}</p>
+    <p><strong>Arriendos activos:</strong> {{ resumen.arriendosActivos }}</p>
+</div>
+
+<div *ngIf="!resumen">
+    <p>Cargando...</p>
+</div>

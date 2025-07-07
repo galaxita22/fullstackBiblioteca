@@ -22,4 +22,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     Optional<Book> findByCodigo(String codigo);
 
     Book findByCodigoAndEstado(String codigo, String estado);
+
+    long countByEstado(String estado);
 }

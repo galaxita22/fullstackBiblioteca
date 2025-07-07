@@ -5,15 +5,15 @@ import {BuscarLibrosComponent} from '../buscar-libros/buscar-libros.component';
 import { ApiService } from '../servicios/api.service';
 import { Router } from '@angular/router';
 import {AgregarLibroComponent} from './agregar-libro/agregar-libro.component';
+import {ReporteComponent} from './reporte/reporte.component';
 import { groupBooksByTitle } from '../utils/book-utils';
-
 
 @Component({
   selector: 'app-admin',
   standalone: true,
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
-  imports: [CommonModule, DevolucionLibrosComponent, AgregarLibroComponent]
+  imports: [CommonModule, DevolucionLibrosComponent, AgregarLibroComponent, ReporteComponent]
 })
 export class AdminComponent {
   seccion: string = '';

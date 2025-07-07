@@ -5,9 +5,10 @@
   <h2>Panel de Administración</h2>
 
   <div class="botones-secciones">
-    <button (click)="setSeccion('verLibros')">📚 Ver libros</button>
-    <button (click)="setSeccion('agregarLibro')">➕ Agregar libro</button>
-    <button (click)="seccion = 'devoluciones'">📤 Devoluciones</button>
+      <button (click)="setSeccion('verLibros')">📚 Ver libros</button>
+      <button (click)="setSeccion('agregarLibro')">➕ Agregar libro</button>
+      <button (click)="seccion = 'devoluciones'">📤 Devoluciones</button>
+      <button (click)="setSeccion('reportes')">📈 Reportes</button>
   </div>
 
   <div class="seccion-activa">
@@ -30,10 +31,13 @@
         <app-agregar-libro></app-agregar-libro>
       </div>
 
-      <div *ngSwitchCase="'devoluciones'">
-        <app-devolucion-libros></app-devolucion-libros>
-      </div>
-      <div *ngSwitchDefault>
+        <div *ngSwitchCase="'devoluciones'">
+            <app-devolucion-libros></app-devolucion-libros>
+        </div>
+        <div *ngSwitchCase="'reportes'">
+            <app-reporte-admin></app-reporte-admin>
+        </div>
+        <div *ngSwitchDefault>
         <p>Selecciona una sección arriba</p>
       </div>
     </ng-container>

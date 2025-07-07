@@ -53,12 +53,12 @@ public class ArriendoController {
         return ResponseEntity.ok(Map.of("message", "Arriendo registrado con éxito"));
     }
 
-    // ✅ 1. Obtener todos los arriendos de un usuario
+    // ✅ 1. Obtener los arriendos activos de un usuario
     @GetMapping("/usuario/{id}")
     public List<Arriendo> obtenerPorUsuario(@PathVariable Long id) {
         User usuario = userRepository.findById(id).orElse(null);
-        if (usuario == null) return null;
-        return arriendoRepository.findByUsuario(usuario);
+        if (usuario == null) return List.of();
+        return arriendoRepository.findByUsuarioAndDevueltoFalse(usuario);
     }
 
     // ✅ 2. Devolver un libro

@@ -67,6 +67,10 @@ export class ApiService {
     return this.http.get<boolean>(`${this.baseUrl}/api/books/disponible/${bookId}`);
   }
 
+  obtenerResumen() {
+    return this.http.get<any>(`${this.baseUrl}/api/report/resumen`);
+  }
+
   // 🔄 Arriendos
   getMisArriendos(userId: number) {
     return this.http.get<any[]>(`${this.baseUrl}/api/arriendo/usuario/${userId}`);

@@ -6,6 +6,7 @@ import { AdminComponent } from './admin/admin.component';
 import { RegistroComponent } from './registro/registro.component';
 import { DevolucionLibrosComponent } from './devolucion-libros/devolucion-libros.component';
 import { AgregarLibroComponent } from './admin/agregar-libro/agregar-libro.component';
+import { ReporteComponent } from './admin/reporte/reporte.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'arriendos', component: MisArriendosComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'devolucion', component: DevolucionLibrosComponent },
-  { path: 'admin/agregar-libro', component: AgregarLibroComponent }
+  { path: 'admin/agregar-libro', component: AgregarLibroComponent },
+  { path: 'admin/reporte', component: ReporteComponent }
 ];
