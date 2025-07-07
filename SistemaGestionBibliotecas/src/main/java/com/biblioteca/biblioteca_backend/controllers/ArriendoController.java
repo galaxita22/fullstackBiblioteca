@@ -4,9 +4,11 @@ import com.biblioteca.biblioteca_backend.models.Arriendo;
 import com.biblioteca.biblioteca_backend.models.Book;
 import com.biblioteca.biblioteca_backend.models.ArriendoConLibroDTO;
 import com.biblioteca.biblioteca_backend.models.User;
+import com.biblioteca.biblioteca_backend.models.Multa;
 import com.biblioteca.biblioteca_backend.repositories.ArriendoRepository;
 import com.biblioteca.biblioteca_backend.repositories.BookRepository;
 import com.biblioteca.biblioteca_backend.repositories.UserRepository;
+import com.biblioteca.biblioteca_backend.repositories.MultaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +30,9 @@ public class ArriendoController {
 
     @Autowired
     private ArriendoRepository arriendoRepository;
+
+    @Autowired
+    private MultaRepository multaRepository;
 
     @PostMapping
     public ResponseEntity<?> arrendar(@RequestParam Long userId, @RequestParam String codigo) {
@@ -86,6 +91,16 @@ public class ArriendoController {
         arriendo.setDevuelto(true);
         arriendo.setFechaDevolucion(LocalDate.now());
         arriendoRepository.save(arriendo);
+
+        long dias = java.time.temporal.ChronoUnit.DAYS.between(arriendo.getFechaInicio(), LocalDate.now());
+        if (dias > 30) {
+            Multa multa = new Multa();
+            multa.setUsuario(arriendo.getUsuario());
+            multa.setArriendo(arriendo);
+            multa.setFecha(LocalDate.now());
+            multa.setMonto((dias - 30) * 1000);
+            multaRepository.save(multa);
+        }
 
         Optional<Book> bookOpt = bookRepository.findByCodigo(codigo);
         bookOpt.ifPresent(book -> {
