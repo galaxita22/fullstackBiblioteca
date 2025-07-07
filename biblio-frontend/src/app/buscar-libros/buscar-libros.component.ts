@@ -5,13 +5,12 @@ import { ApiService } from '../servicios/api.service';
 import { groupBooksByTitle } from '../utils/book-utils';
 import { Router } from '@angular/router';
 import { MisArriendosComponent } from '../mis-arriendos/mis-arriendos.component';
-
-
+import { MisMultasComponent } from '../mis-multas/mis-multas.component';
 
 @Component({
   selector: 'app-buscar-libros',
   standalone: true,
-  imports: [CommonModule, FormsModule, MisArriendosComponent],
+  imports: [CommonModule, FormsModule, MisArriendosComponent, MisMultasComponent],
   templateUrl: './buscar-libros.component.html',
   styleUrls: ['./buscar-libros.component.css']
 })
@@ -21,8 +20,7 @@ export class BuscarLibrosComponent implements OnInit {
   terminoBusqueda = '';
   rolUsuario: string | null = '';
   userId: string | null = '';
-  seccion: 'buscar' | 'misArriendos' = 'buscar';
-
+  seccion: 'buscar' | 'misArriendos' | 'misMultas' = 'buscar';
   constructor(private apiService: ApiService, private router: Router) {
   }
 
@@ -113,7 +111,7 @@ export class BuscarLibrosComponent implements OnInit {
     localStorage.removeItem('email');
     this.router.navigate(['/login']);
   }
-  setSeccion(seccion: 'buscar' | 'misArriendos'): void {
+  setSeccion(seccion: 'buscar' | 'misArriendos' | 'misMultas'): void {
     this.seccion = seccion;
   }
 }

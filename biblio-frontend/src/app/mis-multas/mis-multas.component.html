@@ -1,0 +1,9 @@
+<h2>Mis Multas</h2>
+
+<div *ngIf="multas.length === 0">No tienes multas pendientes.</div>
+
+<div *ngFor="let multa of multas" class="multa-ficha">
+    <p><strong>Monto:</strong> {{ multa.monto }}</p>
+    <p><strong>Fecha:</strong> {{ multa.fecha }}</p>
+    <p><strong>Pagada:</strong> {{ multa.pagada ? '✅ Sí' : '❌ No' }}</p>
+</div>

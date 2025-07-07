@@ -76,6 +76,10 @@ export class ApiService {
     return this.http.get<any[]>(`${this.baseUrl}/api/arriendo/usuario/${userId}`);
   }
 
+  getMisMultas(userId: number) {
+    return this.http.get<any[]>(`${this.baseUrl}/api/multas/usuario/${userId}`);
+  }
+
   arrendarLibro(userId: number, codigo: string) {
     return this.http.post(
       `${this.baseUrl}/api/arriendos?userId=${userId}&codigo=${codigo}`,
