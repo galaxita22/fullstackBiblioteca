@@ -82,6 +82,7 @@ public class ArriendoController {
         Arriendo arriendo = arriendoRepository.findByCodigo(codigo);
         if (arriendo == null || arriendo.isDevuelto()) return "Error al devolver o ha sido devuelto.";
         arriendo.setDevuelto(true);
+        arriendo.setFechaDevolucion(LocalDate.now());
         arriendoRepository.save(arriendo);
 
         Optional<Book> bookOpt = bookRepository.findByCodigo(codigo);
