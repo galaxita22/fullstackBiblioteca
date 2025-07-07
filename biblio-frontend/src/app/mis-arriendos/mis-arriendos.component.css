@@ -4,9 +4,19 @@
   padding: 12px;
   margin-bottom: 12px;
   background-color: #f9f9f9;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
 }
 
 .arriendo-ficha p {
   margin: 4px 0;
   font-size: 14px;
+}
+
+.portada {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
 }

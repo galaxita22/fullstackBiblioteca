@@ -22,26 +22,4 @@ export class MisArriendosComponent implements OnInit {
       });
     }
   }
-  arrendar(libro: any) {
-    const userId = localStorage.getItem('userId');
-    if (!userId) return;
-
-    const ejemplarDisponible = libro.ejemplares?.find(
-      (e: any) => e.estado === 'local' || e.estado === 'disponible' || e.disponible === true
-    );
-    if (!ejemplarDisponible) {
-      alert('No hay ejemplares disponibles.');
-      return;
-    }
-
-    this.apiService.arrendarLibro(Number(userId), ejemplarDisponible.codigo).subscribe({
-      next: () => {
-        alert('¡Libro arrendado con éxito!');
-      },
-      error: () => {
-        alert('Error al arrendar el libro.');
-      }
-    });
-  }
-
 }

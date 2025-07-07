@@ -2,6 +2,7 @@ package com.biblioteca.biblioteca_backend.controllers;
 
 import com.biblioteca.biblioteca_backend.models.Arriendo;
 import com.biblioteca.biblioteca_backend.models.Book;
+import com.biblioteca.biblioteca_backend.models.ArriendoConLibroDTO;
 import com.biblioteca.biblioteca_backend.models.User;
 import com.biblioteca.biblioteca_backend.repositories.ArriendoRepository;
 import com.biblioteca.biblioteca_backend.repositories.BookRepository;
@@ -53,12 +54,26 @@ public class ArriendoController {
         return ResponseEntity.ok(Map.of("message", "Arriendo registrado con éxito"));
     }
 
-    // ✅ 1. Obtener los arriendos activos de un usuario
+    // ✅ 1. Obtener arriendos vigentes de un usuario con datos del libro
     @GetMapping("/usuario/{id}")
-    public List<Arriendo> obtenerPorUsuario(@PathVariable Long id) {
+    public List<ArriendoConLibroDTO> obtenerPorUsuario(@PathVariable Long id) {
         User usuario = userRepository.findById(id).orElse(null);
         if (usuario == null) return List.of();
-        return arriendoRepository.findByUsuarioAndDevueltoFalse(usuario);
+
+        List<Arriendo> arriendos = arriendoRepository.findByUsuarioAndDevueltoFalse(usuario);
+
+        return arriendos.stream().map(a -> {
+            ArriendoConLibroDTO dto = new ArriendoConLibroDTO();
+            dto.id = a.getId();
+            dto.codigo = a.getCodigo();
+            dto.fechaInicio = a.getFechaInicio();
+            dto.fechaDevolucion = a.getFechaDevolucion();
+            dto.devuelto = a.isDevuelto();
+            dto.usuario = a.getUsuario();
+            Optional<Book> b = bookRepository.findByCodigo(a.getCodigo());
+            b.ifPresent(book -> dto.book = book);
+            return dto;
+        }).toList();
     }
 
     // ✅ 2. Devolver un libro
@@ -70,12 +85,13 @@ public class ArriendoController {
         arriendoRepository.save(arriendo);
 
         Optional<Book> bookOpt = bookRepository.findByCodigo(codigo);
-        if (bookOpt.isPresent()) {
-            Book book = bookOpt.get();
+        bookOpt.ifPresent(book -> {
             book.setEstado("local");
             bookRepository.save(book);
-        }
+        });
 
-        return "Libro devuelto.";
+        String userInfo = arriendo.getUsuario() != null ? arriendo.getUsuario().getEmail() : "desconocido";
+
+        return "Libro devuelto por " + userInfo;
     }
 }

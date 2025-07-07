@@ -3,6 +3,8 @@ package com.biblioteca.biblioteca_backend.controllers;
 import com.biblioteca.biblioteca_backend.models.Book;
 import com.biblioteca.biblioteca_backend.models.LibroDTO;
 import com.biblioteca.biblioteca_backend.repositories.BookRepository;
+import com.biblioteca.biblioteca_backend.repositories.ArriendoRepository;
+import com.biblioteca.biblioteca_backend.models.Arriendo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,8 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private ArriendoRepository arriendoRepository;
     private String normalizar(String texto) {
         return Normalizer.normalize(texto, Normalizer.Form.NFD)
                 .replaceAll("\\p{M}", "")
@@ -77,8 +81,20 @@ public class BookController {
     }
 
     @GetMapping("/code/{codigo}")
-    public Optional<Book> getLibroPorCodigo(@PathVariable String codigo) {
-        return bookRepository.findByCodigo(codigo);
+    public ResponseEntity<?> getLibroPorCodigo(@PathVariable String codigo) {
+        Optional<Book> bookOpt = bookRepository.findByCodigo(codigo);
+        if (bookOpt.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ejemplar no encontrado");
+        }
+
+        Book book = bookOpt.get();
+        Map<String, Object> resp = new HashMap<>();
+        resp.put("codigo", book.getCodigo());
+        resp.put("estado", book.getEstado());
+        resp.put("book", book);
+        resp.put("arriendo", arriendoRepository.findByCodigoAndDevueltoFalse(codigo));
+
+        return ResponseEntity.ok(resp);
     }
 
     @PutMapping("/code/{codigo}/estado")

@@ -81,11 +81,11 @@ export class ApiService {
       `${this.baseUrl}/api/arriendos?userId=${userId}&codigo=${codigo}`,
       {}
     );}
-  devolverArriendo(arriendoId: number) {
+  devolverArriendo(codigo: string) {
     return this.http.put(
-      `${this.baseUrl}/api/arriendos/${arriendoId}/devolver`,
-      {},
+      `${this.baseUrl}/api/arriendos/devolver/${codigo}`,
+          {},
       { responseType: 'text' }
-    );
+  );
   }
 }

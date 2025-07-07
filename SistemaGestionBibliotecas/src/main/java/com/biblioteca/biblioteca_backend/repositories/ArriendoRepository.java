@@ -7,12 +7,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ArriendoRepository extends JpaRepository<Arriendo, Long> {
+    // Obtiene los arriendos que aún no han sido devueltos por un usuario
     List<Arriendo> findByUsuario(User usuario);//Dame los arriendos de un usuario específico
 
-    // Obtiene los arriendos que aún no han sido devueltos por un usuario
+    Arriendo findByCodigo(String codigo);
+
     List<Arriendo> findByUsuarioAndDevueltoFalse(User usuario);
 
-    Arriendo findByCodigo(String codigo);
+    List<Arriendo> findByCodigoAndDevueltoFalse(String codigo);
 
     long countByDevueltoFalse();
 }

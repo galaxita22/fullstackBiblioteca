@@ -3,9 +3,9 @@
 <div *ngIf="arriendos.length === 0">No tienes libros arrendados actualmente.</div>
 
 <div *ngFor="let arriendo of arriendos" class="arriendo-ficha">
-  <p><strong>Ejemplar:</strong> {{ arriendo.ejemplar?.codigo || '-' }}</p>
-  <p><strong>Título:</strong> {{ arriendo.ejemplar?.libro?.title || '-' }}</p>
-  <p><strong>Inicio:</strong> {{ arriendo.fechaInicio }}</p>
-  <p><strong>Devolución:</strong> {{ arriendo.fechaDevolucion }}</p>
-  <p><strong>Devuelto:</strong> {{ arriendo.devuelto ? '✅ Sí' : '❌ No' }}</p>
+    <img [src]="arriendo.book?.image" class="portada" *ngIf="arriendo.book?.image" />
+    <p><strong>Código:</strong> {{ arriendo.codigo }}</p>
+    <p><strong>Título:</strong> {{ arriendo.book?.title }}</p>
+    <p><strong>Inicio:</strong> {{ arriendo.fechaInicio }}</p>
+    <p><strong>Devuelto:</strong> {{ arriendo.devuelto ? '✅ Sí' : '❌ No' }}</p>
 </div>

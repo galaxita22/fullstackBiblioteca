@@ -56,7 +56,7 @@ export class DevolucionLibrosComponent {
   devolver() {
     if (!this.arriendoActual) return;
 
-    this.apiService.devolverArriendo(this.arriendoActual.id).subscribe({
+    this.apiService.devolverArriendo(this.arriendoActual.codigo).subscribe({
       next: () => {
         this.arriendoActual.devuelto = true;
         this.ejemplarEncontrado.estado = 'local';
