@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MisArriendosComponent } from './mis-arriendos.component';
 
 describe('MisArriendosComponent', () => {
@@ -8,7 +8,7 @@ describe('MisArriendosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MisArriendosComponent]
+      imports: [MisArriendosComponent, HttpClientTestingModule]
     })
     .compileComponents();
 

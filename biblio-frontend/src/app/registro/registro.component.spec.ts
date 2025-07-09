@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RegistroComponent } from './registro.component';
+import { ActivatedRoute } from "@angular/router";
+import { of } from 'rxjs';
+import {LoginComponent} from "../login/login.component";
 
 describe('RegistroComponent', () => {
   let component: RegistroComponent;
@@ -8,7 +11,17 @@ describe('RegistroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegistroComponent]
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {paramMap: {get: () => null}},
+            queryParams: of({}),
+            params: of({})
+          }
+        }
+      ],
+      imports: [RegistroComponent, HttpClientTestingModule]
     })
     .compileComponents();
 
