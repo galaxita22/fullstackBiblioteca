@@ -6,6 +6,9 @@
   margin: 0 auto;
   padding: 24px;
   font-family: 'Segoe UI', sans-serif;
+  background-color: rgba(226, 190, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .barra-busqueda {
@@ -24,7 +27,7 @@
 .barra-busqueda button {
   padding: 8px 16px;
   border: none;
-  background-color: #3366cc;
+  background-color: var(--secondary-color);
   color: white;
   border-radius: 8px;
   cursor: pointer;
@@ -32,7 +35,7 @@
 }
 
 .barra-busqueda button:hover {
-  background-color: #254f9a;
+  background-color: var(--primary-color);
 }
 
 .resultados {
@@ -44,7 +47,7 @@
 .libro {
   display: flex;
   gap: 16px;
-  background-color: #f3f4f6;
+  background-color: rgba(216, 173, 248, 0.75);
   padding: 16px;
   border-radius: 12px;
   border: 1px solid #ddd;
@@ -77,7 +80,7 @@
   margin-top: 8px;
   padding: 6px 12px;
   border: none;
-  background-color: #009688;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 6px;
   cursor: pointer;
@@ -117,7 +120,7 @@
 }
 
 .botones-modal .confirmar {
-  background-color: #4caf50;
+  background-color: var(--secondary-color);
   color: white;
   padding: 8px 14px;
   border: none;

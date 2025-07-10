@@ -16,6 +16,8 @@ export class AgregarLibroComponent {
   libroSeleccionado: any = null; // libro que se selecciona para guardar
   cantidadEjemplares: number = 1; //numero de copias a guardar
   mensajeGuardado: string = ''; //mensaje de éxito o error al guardar
+  toastVisible: boolean = false; //controla la visibilidad del toast
+  toastMessage: string = ''; //mensaje del toast
 
   constructor(private apiService: ApiService) {}
 
@@ -41,6 +43,11 @@ export class AgregarLibroComponent {
         this.mensajeGuardado = '✅ Libro guardado exitosamente';
         this.libroSeleccionado = null;
         this.cantidadEjemplares = 1;
+        this.toastMessage = 'Libro guardado con éxito';
+        this.toastVisible = true;
+        setTimeout(() => {
+          this.toastVisible = false;
+        }, 3000);
       },
       error: (err) => {
         console.error('❌ Error al guardar:', err);

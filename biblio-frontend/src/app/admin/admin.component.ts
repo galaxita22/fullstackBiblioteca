@@ -34,12 +34,7 @@ export class AdminComponent {
   irAgregarLibro() {
     this.router.navigate(['/admin/agregar-libro']);
   }
-  logout() {
-    localStorage.removeItem('userId');
-    localStorage.removeItem('role');
-    localStorage.removeItem('email');
-    this.router.navigate(['/login']);
-  }
+
   ngOnInit() {
     const rol = localStorage.getItem('role');
     if (rol !== 'admin') {

@@ -60,3 +60,9 @@ button:disabled {
   color: red;
   margin-top: 10px;
 }
+
+.login-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: -15px;
+}

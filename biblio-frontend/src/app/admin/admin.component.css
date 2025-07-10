@@ -1,76 +1,12 @@
 .admin-panel {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fdfdfd;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.botones-secciones {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.botones-secciones button {
-  margin: 10px;
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  background-color: #0077cc;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.botones-secciones button:hover {
-  background-color: #005fa3;
-}
-
-.seccion-activa {
-  margin-top: 20px;
-  padding: 15px;
-  border-top: 1px solid #ddd;
-  text-align: left;
-}
-.libro-ficha {
-  display: flex;
-  align-items: flex-start;
-  background-color: #e6f0fb;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
-  gap: 15px;
-}
-
-.portada {
-  width: 100px;
-  border-radius: 5px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-}
-
-.info-libro {
-  flex: 1;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.titulo {
-  color: #004b8d;
-  font-size: 16px;
-  margin: 0 0 8px;
-}
-/* admin.component.css */
-.admin-panel {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 24px;
   font-family: 'Segoe UI', sans-serif;
+  background-color: rgba(226, 190, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .botones-secciones {
@@ -78,6 +14,7 @@
   gap: 12px;
   margin-bottom: 24px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .botones-secciones button,
@@ -90,34 +27,30 @@
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.botones-secciones button:hover,
-.botones-secciones .boton-link:hover {
-  transform: translateY(-1px);
-}
-
-.botones-secciones button:nth-child(1) {
-  background-color: #3f51b5;
-  color: white;
-}
-
-.botones-secciones button:nth-child(2),
-.botones-secciones .boton-link {
-  background-color: #4caf50;
+  background-color: var(--secondary-color);
   color: white;
   text-decoration: none;
   display: inline-block;
   text-align: center;
 }
 
+.botones-secciones button:hover,
+.botones-secciones .boton-link:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.botones-secciones button:nth-child(1) {
+  background-color: var(--primary-color);
+}
+
 .botones-secciones button:nth-child(3) {
-  background-color: #ff9800;
-  color: white;
+  background-color: var(--accent-color);
 }
 
 .seccion-activa {
   margin-top: 24px;
+  text-align: left;
 }
 
 .libro-ficha {
@@ -128,7 +61,7 @@
   border: 1px solid #ddd;
   border-radius: 10px;
   margin-bottom: 16px;
-  background-color: #f9f9f9;
+  background-color: rgba(216, 173, 248, 0.75);
 }
 
 .libro-ficha img.portada {
@@ -140,38 +73,25 @@
 
 .info-libro {
   flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .info-libro .titulo {
   margin: 0 0 4px;
+  color: var(--text-color);
 }
 
 .info-libro p {
   margin: 4px 0;
   font-size: 14px;
-  color: #333;
-}
-.boton-link {
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-size: 15px;
-  background-color: #4caf50;
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.2s, transform 0.1s;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  color: var(--text-color);
 }
 
-.boton-link:hover {
-  background-color: #3e8e41;
-  transform: translateY(-1px);
-}
 .logout {
   margin-bottom: 10px;
   float: right;
-  background-color: #e74c3c;
+  background-color: var(--secondary-color);
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -180,5 +100,5 @@
 }
 
 .logout:hover {
-  background-color: #c0392b;
+  background-color: var(--primary-color);
 }

@@ -21,6 +21,9 @@ public class AuthController {
 
     @PostMapping("/register")
     public String register(@RequestBody User user) {
+        if (!user.getEmail().matches("^[^\\s@]+@[^\\s@]+\\.(cl|com|es)$")) {
+            return "Formato de correo no valido";
+        }
         if (userRepository.findByEmail(user.getEmail()) != null) {
             return "El correo ya está registrado";
         }

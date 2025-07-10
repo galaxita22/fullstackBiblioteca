@@ -4,12 +4,12 @@
   padding: 25px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  background-color: #f9f9f9;
+  background-color: rgba(226, 190, 255, 0.85);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2, h3 {
-  color: #333;
+  color: var(--text-color);
   text-align: center;
 }
 
@@ -24,7 +24,7 @@ label {
 }
 
 input[type="text"] {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -33,7 +33,7 @@ input[type="text"] {
 
 button {
   padding: 10px 20px;
-  background-color: #0077cc;
+  background-color: var(--secondary-color);
   color: white;
   border: none;
   border-radius: 6px;
@@ -43,12 +43,12 @@ button {
 }
 
 button:hover {
-  background-color: #005fa3;
+  background-color: var(--primary-color);
 }
 
 p {
   font-size: 16px;
-  color: #333;
+  color: var(--text-color);
 }
 
 div[ngIf="mensaje"] {

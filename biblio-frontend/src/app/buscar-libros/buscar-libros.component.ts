@@ -105,12 +105,7 @@ export class BuscarLibrosComponent implements OnInit {
         (e: any) => e.estado === 'local' || e.estado === 'disponible' || e.disponible === true
       ) ?? false
     );  }
-  logout(): void {
-    localStorage.removeItem('userId');
-    localStorage.removeItem('role');
-    localStorage.removeItem('email');
-    this.router.navigate(['/login']);
-  }
+
   setSeccion(seccion: 'buscar' | 'misArriendos' | 'misMultas'): void {
     this.seccion = seccion;
   }

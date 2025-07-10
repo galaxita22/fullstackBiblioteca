@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: rgba(87, 10, 147, 0.85);
+    color: white;
+}
+
+.navbar-title {
+    font-size: 18px;
+}
+
+.logout-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}

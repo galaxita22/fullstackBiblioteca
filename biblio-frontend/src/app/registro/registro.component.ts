@@ -22,6 +22,11 @@ export class RegistroComponent {
   constructor(private apiService: ApiService, private router: Router) {}
 
   registrar() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.(cl|com|es|ar|)$/;
+    if (!emailRegex.test(this.correo)) {
+      this.error = 'Formato de correo no valido';
+      return;
+    }
     const datosRegistro = {
       name: this.nombre,
       email: this.correo,
