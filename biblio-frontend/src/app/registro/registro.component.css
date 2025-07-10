@@ -64,3 +64,8 @@ button:disabled {
 .login-link a:hover {
   text-decoration: underline;
 }
+.register-title {
+  width: 180px;
+  height: 80px;
+  margin-bottom: -10px;
+}

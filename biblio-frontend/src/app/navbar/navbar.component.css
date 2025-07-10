@@ -11,10 +11,23 @@
     font-size: 18px;
 }
 
+.navbar-icon {
+    height: 32px;
+    margin-right: 8px;
+}
+
+.navbar-title-img {
+    float: left;
+    height: 36px;
+}
+
 .logout-btn {
     background: transparent;
     border: none;
     font-size: 20px;
     cursor: pointer;
     color: white;
+}
+.logout-icon {
+    height: 40px;
 }
