@@ -19,3 +19,10 @@ h1, h2, h3 {
   font-weight: 500;
   color: var(--primary-color);
 }
+
+.button-img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+}

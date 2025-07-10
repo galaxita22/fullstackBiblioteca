@@ -40,17 +40,12 @@
   transform: translateY(-1px);
 }
 
-.botones-secciones button:nth-child(1) {
-  background-color: var(--primary-color);
-}
-
-.botones-secciones button:nth-child(3) {
-  background-color: var(--accent-color);
-}
-
 .seccion-activa {
   margin-top: 24px;
   text-align: left;
+  button {
+    background-color: var(--primary-color);
+  }
 }
 
 .libro-ficha {

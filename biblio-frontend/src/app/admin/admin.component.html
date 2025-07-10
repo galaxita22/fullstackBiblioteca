@@ -2,10 +2,18 @@
   <h2>Panel de Administración</h2>
 
   <div class="botones-secciones">
-      <button (click)="setSeccion('verLibros')">📚 Ver libros</button>
-      <button (click)="setSeccion('agregarLibro')">➕ Agregar libro</button>
-      <button (click)="seccion = 'devoluciones'">📤 Devoluciones</button>
-      <button (click)="setSeccion('reportes')">📈 Reportes</button>
+      <button (click)="setSeccion('verLibros')">
+          <img src="/favicon.png" alt="Ver Libros" class="button-img">Ver libros
+      </button>
+      <button (click)="setSeccion('agregarLibro')">
+          <img src="/add.png" alt="Agregar libro" class="button-img">Agregar libro
+      </button>
+      <button (click)="seccion = 'devoluciones'">
+          <img src="/devolucion.png" alt="Devoluciones" class="button-img">Devoluciones
+      </button>
+      <button (click)="setSeccion('reportes')">
+          <img src="/reporte.png" alt="Reportes" class="button-img">Reportes
+      </button>
   </div>
 
   <div class="seccion-activa">

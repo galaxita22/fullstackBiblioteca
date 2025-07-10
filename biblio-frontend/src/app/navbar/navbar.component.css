@@ -2,22 +2,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
-    background-color: rgba(87, 10, 147, 0.85);
+    padding: 0px 16px;
+    background-color: rgba(130, 45, 194, 0.85);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.44);
     color: white;
 }
 
 .navbar-title {
     font-size: 18px;
 }
-
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
 .navbar-icon {
-    height: 32px;
-    margin-right: 8px;
+    height: 55px;
+    margin-right: -5px;
+    margin-top: 2px;
 }
 
 .navbar-title-img {
-    float: left;
     height: 36px;
 }
 
@@ -29,5 +33,5 @@
     color: white;
 }
 .logout-icon {
-    height: 40px;
+    height: 50px;
 }

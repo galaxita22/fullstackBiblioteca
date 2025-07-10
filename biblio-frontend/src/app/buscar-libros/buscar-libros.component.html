@@ -2,9 +2,15 @@
   <h2>Panel del Cliente</h2>
 
     <div class="botones-secciones">
-        <button (click)="setSeccion('buscar')">🔍 Buscar Libros</button>
-        <button (click)="setSeccion('misArriendos')">📚 Mis Arriendos</button>
-        <button (click)="setSeccion('misMultas')">💸 Mis Multas</button>
+        <button (click)="setSeccion('buscar')">
+            <img src="/buscar.png" alt="Buscar" class="button-img">Buscar Libros
+        </button>
+        <button (click)="setSeccion('misArriendos')">
+            <img src="/favicon.png" alt="Mis Arriendos" class="button-img">Mis Arriendos
+        </button>
+        <button (click)="setSeccion('misMultas')">
+            <img src="/money.png" alt="Mis Multas" class="button-img">Mis Multas
+        </button>
     </div>
 
   <div class="seccion-activa" *ngIf="seccion === 'buscar'">
@@ -16,7 +22,9 @@
         placeholder="Buscar por título, autor o género"
         required
       />
-      <button type="submit">🔍 Buscar</button>
+        <button type="submit">
+            <img src="/buscar.png" alt="Buscar" class="button-img">Buscar
+        </button>
     </form>
 
     <div class="resultados" *ngIf="books.length > 0">
@@ -40,7 +48,7 @@
             </p>
 
             <button *ngIf="rolUsuario === 'client' && esDisponible(libro)" (click)="arrendar(libro)">
-              📚 Arrendar
+                <img src="/favicon.png" alt="Arriendos" class="button-img">Arrendar
             </button>
           </div>
         </div>

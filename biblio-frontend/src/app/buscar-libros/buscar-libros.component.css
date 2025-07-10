@@ -15,6 +15,12 @@
   justify-content: center;
 }
 
+.botones-secciones button:hover,
+.botones-secciones .boton-link:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
 .botones-secciones button {
   padding: 10px 18px;
   border: none;
@@ -26,10 +32,6 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   background-color: #a00bff;
   color: white;
-}
-
-.botones-secciones button:nth-child(2) {
-  background-color: #c271fc;
 }
 
 .botones-secciones button:hover {
